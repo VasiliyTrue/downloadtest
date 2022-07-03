@@ -9,6 +9,8 @@ function App() {
 	const getDate = () => {
 		let today = new Date()
 		let dd = today.getDate()
+		let hour = today.getHours()
+		let minute = today.getMinutes()
 
 		let mm = today.getMonth() + 1
 		const yyyy = today.getFullYear()
@@ -21,7 +23,11 @@ function App() {
 			mm = `0${mm}`
 		}
 
-		today = `${dd}-${mm}-${yyyy}`
+		if (minute < 10) {
+			minute = `0${minute}`
+		}
+
+		today = `${dd}-${mm}-${yyyy} ${hour}:${minute}`
 		return today
 	}
 
